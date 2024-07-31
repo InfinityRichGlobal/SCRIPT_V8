@@ -106,29 +106,22 @@
       background-color: #555;
     }
 
-
-
     #showImageBtn {
       position: fixed;
       bottom: 20px;
       left: 20px;
       width: 50px;
       height: 50px;
-      border-radius: 50%;
-      background-color: white;
       border: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
+      background: none;
       padding: 0;
-      overflow: hidden;
+      cursor: pointer;
     }
 
     #showImageBtn img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     #imagePopup {
@@ -166,7 +159,6 @@
       border: none;
       cursor: pointer;
     }
-    
   </style>
 </head>
 <body>
@@ -182,7 +174,7 @@
     <iframe src="https://script.google.com/macros/s/AKfycbxsZkgmFFeiMgtUSLLRDv3_35U_OEk7cQV34WbNB_feltGaCWMio_os85_TKQQckXs/exec"></iframe>
     <button id="homeBtn"><i class="fas fa-home"></i></button>
     <button id="showImageBtn">
-      <img src="https://theicongroupaec.com/wp-content/uploads/2024/07/ISO_7010_M002.png" alt="Logo">
+      <img src="https://theicongroupaec.com/wp-content/uploads/2024/07/ISO_7010_M002.png" alt="Information">
     </button>
 
     <div id="imagePopup">
@@ -208,23 +200,17 @@
       document.querySelector('iframe').src = 'https://script.google.com/macros/s/AKfycbxsZkgmFFeiMgtUSLLRDv3_35U_OEk7cQV34WbNB_feltGaCWMio_os85_TKQQckXs/exec';
     });
 
+    const showImageBtn = document.getElementById('showImageBtn');
+    const imagePopup = document.getElementById('imagePopup');
+    const closeBtn = document.getElementById('closeBtn');
 
-  const showImageBtn = document.getElementById('showImageBtn');
-  const imagePopup = document.getElementById('imagePopup');
-  const popupImage = document.getElementById('popupImage');
-  const closeBtn = document.getElementById('closeBtn');
+    showImageBtn.addEventListener('click', () => {
+      imagePopup.style.display = 'block';
+    });
 
-  showImageBtn.addEventListener('click', () => {
-    popupImage.src = 'https://slide-min.my.canva.site/script-sapv8';
-    imagePopup.style.display = 'block';
-  });
-
-  closeBtn.addEventListener('click', () => {
-    imagePopup.style.display = 'none';
-  });
-    
-
-    
+    closeBtn.addEventListener('click', () => {
+      imagePopup.style.display = 'none';
+    });
   </script>
 </body>
 </html>
