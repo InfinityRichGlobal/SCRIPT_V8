@@ -7,6 +7,9 @@
     <!-- เพิ่ม Google Font 'Prompt' -->
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        html {
+            scroll-padding-top: 20px; /* เพิ่มระยะห่างด้านบนเมื่อเลื่อนไปยังเนื้อหา */
+        }
         body {
             font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt */
             margin: 0;
@@ -25,7 +28,7 @@
             top: 0;
             left: -150px; /* ซ่อน sidebar ไว้นอกหน้าจอ */
             height: 100%;
-            width: 150px; /* ลดขนาดความกว้างของ sidebar */
+            width: 150px; /* ขนาดความกว้างของ sidebar */
             background-color: #ffffff;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             padding: 50px 15px 20px;
@@ -151,9 +154,20 @@
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({behavior: 'smooth'}); // เลื่อนไปยังภาพที่เกี่ยวข้อง
+                    // ใช้ scrollIntoView แบบกำหนดค่า
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth', // ทำให้การเลื่อนดูนุ่มนวล
+                        block: 'start'  // ทำให้เนื้อหาอยู่ด้านบนของหน้าจอ
+                    });
+                    
+                    // เพิ่มการปรับตำแหน่งเพิ่มเติมหลังจากการเลื่อน
+                    setTimeout(() => {
+                        window.scrollBy(0, -20);  // ปรับระยะห่างจากด้านบน
+                    }, 500);  // รอให้การเลื่อนเสร็จสิ้นก่อน
                 }
-                document.querySelector('.sidebar').classList.remove('open'); // ปิด sidebar
+                
+                // ปิด sidebar
+                document.querySelector('.sidebar').classList.remove('open');
                 document.querySelector('.container').style.marginLeft = '0';
             });
         });
