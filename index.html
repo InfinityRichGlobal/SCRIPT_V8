@@ -116,6 +116,7 @@
       background: none;
       padding: 0;
       cursor: pointer;
+      z-index: 1001; /* เพิ่มค่า z-index เพื่อให้ปุ่มอยู่ด้านบนของ popup */
     }
 
     #showImageBtn img {
@@ -158,7 +159,10 @@
       color: white;
       border: none;
       cursor: pointer;
+      z-index: 1002; /* เพิ่มค่า z-index เพื่อให้ปุ่มปิดอยู่ด้านบนสุด */
     }
+
+    
   </style>
 </head>
 <body>
@@ -173,7 +177,7 @@
   <div id="content">
     <iframe src="https://script.google.com/macros/s/AKfycbxsZkgmFFeiMgtUSLLRDv3_35U_OEk7cQV34WbNB_feltGaCWMio_os85_TKQQckXs/exec"></iframe>
     <button id="homeBtn"><i class="fas fa-home"></i></button>
-    <button id="showImageBtn">
+   <button id="showImageBtn">
       <img src="https://theicongroupaec.com/wp-content/uploads/2024/07/ISO_7010_M002.png" alt="Information">
     </button>
 
